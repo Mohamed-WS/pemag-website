@@ -6,12 +6,12 @@ import type { Testimonial } from "@shared/schema";
 
 const partnerLogos = [
   { name: "SNIM", image: "/logos/snim.jpg" },
-  { name: "IDM INDUSTRIES", image: "/logos/idm-industries.jpg" },
-  { name: "MINISTÈRE DE L'ENERGIE ET DU PÉTROLE", image: "/logos/ministry-energy-petroleum.jpg" },
-  { name: "AMC TRAVAUX", image: "/logos/smh.jpg" },
-  { name: "MINISTÈRE DES MINES ET DE L'INDUSTRIE", image: "/logos/ministry-mines-industry.jpg" },
-  { name: "BRITISH SAFETY SERVICES", image: "/logos/british-safety-services.jpg" },
-  { name: "SMH", image: "/logos/amc-travaux.avif" }
+  { name: "MINISTÈRE DES MINES ET DE L'INDUSTRIE", image: "/logos/idm-industries.jpg" },
+  { name: "MINISTÈRE DE L'ENERGIE ET DU PÉTROLE", image: "/logos/MEP.jpg" },
+  { name: "AMC TRAVAUX", image: "/logos/amc-travaux.avif" },
+  { name: "BRITISH SAFETY SERVICES", image: "/logos/ministry-mines-industry.jpg" },
+  { name: "IDM INDUSTRIES", image: "/logos/british-safety-services.jpg" },
+  { name: "SMH", image: "/logos/Logo-SMH.png" }
 ];
 
 export default function TestimonialsSection() {
@@ -97,12 +97,18 @@ export default function TestimonialsSection() {
               {partnerLogos.map((partner, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-xl p-6 h-24 flex items-center justify-center hover:scale-105 transition-all duration-200 shadow-lg border border-gray-200"
+                  className="bg-white rounded-xl p-6 h-24 flex items-center justify-center hover:scale-105 transition-all duration-200 shadow-lg border border-gray-200 overflow-hidden"
                 >
                   <img
                     src={partner.image}
                     alt={partner.name}
-                    className="max-h-16 max-w-full object-contain filter brightness-110 contrast-110"
+                    className={`max-w-full object-contain filter brightness-110 contrast-110 ${
+                      partner.name === "MINISTÈRE DE L'ENERGIE ET DU PÉTROLE" 
+                        ? "max-h-20 scale-110" 
+                        : partner.name === "MINISTÈRE DES MINES ET DE L'INDUSTRIE"
+                        ? "max-h-20 scale-110"
+                        : "max-h-16"
+                    }`}
                     title={partner.name}
                     style={{ mixBlendMode: 'multiply' }}
                   />
