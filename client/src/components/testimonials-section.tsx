@@ -14,10 +14,39 @@ const partnerLogos = [
   { name: "SMH", image: "/logos/Logo-SMH.png" }
 ];
 
+// Mock testimonials data for static deployment
+const mockTestimonials: Testimonial[] = [
+  {
+    id: 1,
+    name: "Khadija Mint Salem",
+    role: "Mining Operations Supervisor",
+    content: "The mining engineering and safety training at PEMAG provided me with the technical skills and safety knowledge essential for leading complex mining operations in challenging environments.",
+    rating: 5,
+    image: "/api/placeholder/150/150"
+  },
+  {
+    id: 2,
+    name: "Sidi Mohamed Ould Cheikh",
+    role: "Energy Consultant",
+    content: "PEMAG's energy transition training prepared me for the future of sustainable energy in Mauritania. The practical approach and industry connections have been invaluable for my consulting practice.",
+    rating: 5,
+    image: "/api/placeholder/150/150"
+  },
+  {
+    id: 3,
+    name: "Aminetou Mint Moctar",
+    role: "Process Engineer",
+    content: "The professional development programs at PEMAG enhanced both my technical capabilities and leadership skills. The training quality and instructor expertise are truly world-class.",
+    rating: 5,
+    image: "/api/placeholder/150/150"
+  }
+];
+
 export default function TestimonialsSection() {
-  const { data: testimonials, isLoading, error } = useQuery<Testimonial[]>({
-    queryKey: ['/api/testimonials'],
-  });
+  // Use mock data for static deployment
+  const testimonials = mockTestimonials;
+  const isLoading = false;
+  const error = null;
 
   if (error) {
     return (
